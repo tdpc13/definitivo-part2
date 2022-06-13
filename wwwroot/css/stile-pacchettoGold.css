@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(235, 195, 86);
+    color: rgb(75, 25, 108);
+}
+.link-wiki {
+    color: red;
+}
+
+table {
+    border: solid;
+    margin-bottom: 20px;
+}
+
+th {
+    border: solid;
+}
+
+td {
+    border: solid;
+}

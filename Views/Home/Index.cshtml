@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+@using Microsoft.AspNetCore.Identity
+@using ASPNETIdentityManager.Entities
+@inject SignInManager<User> SignInManager
+@inject ASPNETIdentityManager.Contexts.UserDBContext userDBContext
+@inject UserManager<User> UserManager
+
+@model ASPNETIdentityManager.Models.UsersAndRolesViewModel
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/css/stile.css">
+</head>
+
+<body style=" background-image: linear-gradient(#d7f4f8 30%, #66d1df, #edec91);">
+<div class="centraelementi main-container">
+    <div class="info-containers">
+            <!-- Sezione principale -->
+        <section>
+            <header style="background-color:rgb(128, 217, 233)">
+                
+                    <h1 style="text-shadow: -15px 15px 10px #71797a; font-size: 2em;" class="main-title">Mare Relax Luxury Village</h1>
+            </header>
+        </section>
+
+        <p style="text-align: justify;" >"Mare Relax Luxury Village",
+            Prova il piacere di svegliarti immerso nel verde, lasciati inebriare dall'odore del mare e fatti coccolare dalla nostra ospitalità.
+            Se siete abituati ad avere il meglio ed è quello che vi aspettate anche dalla vostra vacanza, siete arrivati nel posto giusto. 
+        </p>
+        <p style="text-align: justify;" >
+            Trascorrerai insieme a noi una vacanza serena e rilassante.
+            Scegli la migliore soluzione per te, abbiamo diversi pacchetti. Registrati e prenota ora dal nostro sito. 
+        </p>
+    </div>
+    
+    <video style="height: 80vh; width: 100vw;" id="idvideo" autoplay="" muted="" playsinline="" loop="" poster="https://cdn.blastness.info/media/389/top/thumbs/full/video-teaser.jpg">
+        <source src="~/lib/MareRelaxLuxuryVillage.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+ 
+        <table >
+            <tr>
+                <th class="col-md-4">
+                     <h3 style="text-shadow: -15px 15px 10px #71797a;">Pacchetto Platinum</h3>
+                </th>
+                <th class="col-md-4">
+                    <h3 style="text-shadow: -15px 15px 10px #71797a;">Pacchetto Gold</h3>
+                </th>
+                <th class="col-md-4">
+                    <h3 style="text-shadow: -15px 15px 10px #71797a;">Pacchetto Silver</h3>
+                </th>
+                </tr>
+                <tr>
+                <td>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="pacchettoPlatinum">
+                        <div class="link-inner-container">
+                            <img class="image-link" src="/lib/PacchettoPlatinum.jpg">
+                            <p class="title-link">Platinum</p>
+                        </div>                      
+                    </a> 
+                </td>
+                <td>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="pacchettoGold">
+                        <div class="link-inner-container">
+                            <img class="image-link" src="/lib/PacchettoGold.jpg">
+                            <p class="title-link">Gold</p>
+                        </div>
+                    </a> 
+                </td>
+                <td>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="pacchettoArgento">
+                         <div class="link-inner-container ">
+                            <img class="image-link " src="/lib/PacchettoArgento.jpg">
+                            <p class="title-link">Silver</p>                                                           
+                        </div> 
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="text-center">
+                        <button id="PrenotaButton" class="btn btn-success btn-sm" onclick="    prenota('@Url.Action("Prenota", "Home")', { addOrDelete: 'Add' , pacchetto: 'Platinum', user: '@UserManager.GetUserName(User)'});">Prenota</button>
+                        </div>
+                    }
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="text-center">
+                        <button id="PrenotaButton" class="btn btn-success btn-sm" onclick="    prenota('@Url.Action("Prenota", "Home")', { addOrDelete: 'Add', pacchetto: 'Gold', user: '@UserManager.GetUserName(User)' });">Prenota</button>
+                        </div>
+                    }
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="text-center">
+                        <button id="PrenotaButton" class="btn btn-success btn-sm" onclick="prenota('@Url.Action("Prenota", "Home")', { addOrDelete:'Add' , pacchetto: 'Silver', user: '@UserManager.GetUserName(User)'});">Prenota</button>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </table>
+</body> 

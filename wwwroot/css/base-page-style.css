@@ -1,0 +1,117 @@
+body {
+    background-color: rgb(238, 230, 230);
+    color: rgb(20, 20, 240);
+    margin: 0;
+}
+
+.header-container {
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+.header-link {
+    font-size: 20px;
+}
+
+.home-icon {
+    filter: brightness(0) invert(1);
+}
+
+.link-container {
+    border-radius: 6px;
+    background: forestgreen;
+    padding: 5px 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.link-container:hover {
+    padding: 10px 20px;
+}
+
+.link {
+    color: white;
+    font-family: cursive;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+table {
+    border: solid;
+    margin-bottom: 20px;
+}
+
+th {
+    border: solid;
+}
+
+td {
+    border: solid;
+}
+
+.slide-container {
+    background: #bfe6ff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.slides {
+    height: 100vh;
+    width: 70%;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.info-container {
+    position: absolute;
+    bottom: 0;
+    background: transparent;
+    padding: 0rem 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 6px;
+}
+
+.icons-container {
+    margin-top: 1rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.massage-icon {
+    height: 60px;
+    width: 60px;
+}
+
+.main-title {
+    color: dimgray;
+}
+
+.price {
+    opacity: 0;
+    color: #ba5345;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+}
+
+.prices-container {
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
